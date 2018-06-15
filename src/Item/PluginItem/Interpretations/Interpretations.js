@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from 'd2-i18n';
 
@@ -98,6 +99,7 @@ class Interpretations extends Component {
                     placeholder={i18n.t('Add your interpretation')}
                     onPost={this.postInterpretation}
                     postText="Post"
+                    d2={this.context.d2}
                 />
             </div>
         );
@@ -121,6 +123,10 @@ const mapDispatchToProps = dispatch => {
         getInterpretations: ids => dispatch(tGetInterpretations(ids)),
         postInterpretation: data => dispatch(tPostInterpretation(data)),
     };
+};
+
+Interpretation.contextTypes = {
+    d2: PropTypes.object,
 };
 
 const InterpretationsContainer = connect(mapStateToProps, mapDispatchToProps)(

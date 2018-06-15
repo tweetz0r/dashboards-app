@@ -261,6 +261,7 @@ class Interpretation extends Component {
                             placeholder={i18n.t('Add your reply')}
                             onPost={this.postComment}
                             postText={i18n.t('Reply')}
+                            d2={this.context.d2}
                         />
                     </div>
                 ) : null}
